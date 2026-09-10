@@ -13,7 +13,8 @@
   box-sizing:border-box
 }
 html {
-  scroll-behavior:smooth
+  scroll-behavior:smooth;
+  scroll-snap-type:y proximity
 }
 body {
   margin:0;
@@ -182,7 +183,7 @@ button,input,select {
   padding-right:5vw
 }
 .hero {
-  min-height:650px;
+  min-height:100svh;
   overflow:hidden
 }
 .hero-copy {
@@ -411,6 +412,7 @@ h2 {
   }
 }
 .intro {
+  min-height:100svh;
   padding-top:130px;
   padding-bottom:140px
 }
@@ -469,6 +471,7 @@ h2 {
   letter-spacing:.07em
 }
 .classes {
+  min-height:100svh;
   background:#e8e5df;
   padding:105px 0
 }
@@ -585,6 +588,7 @@ h2 {
   color:#fff
 }
 .space {
+  min-height:100svh;
   padding-top:140px;
   padding-bottom:140px;
   align-items:center
@@ -647,6 +651,7 @@ h2 {
   margin-top:4px
 }
 .testimonial {
+  min-height:100svh;
   background:var(--red);
   color:#fff;
   text-align:center;
@@ -681,6 +686,7 @@ h2 {
   margin-left:13px
 }
 .booking {
+  min-height:100svh;
   background:var(--ink);
   color:#fff;
   padding:120px 0
@@ -751,6 +757,7 @@ h2 {
   min-height:16px
 }
 .faq {
+  min-height:100svh;
   padding-top:130px;
   padding-bottom:140px
 }
@@ -796,6 +803,9 @@ h2 {
 .site-footer {
   background:#e8e5df;
   padding:50px 5vw 24px
+}
+.hero,.intro,.classes,.space,.testimonial,.booking,.faq {
+  scroll-snap-align:start
 }
 .footer-top {
   display:flex;
@@ -905,7 +915,7 @@ h2 {
   }
   .hero {
     display:block;
-    min-height:auto
+    min-height:100svh
   }
   .hero-copy {
     padding:70px 0 55px
