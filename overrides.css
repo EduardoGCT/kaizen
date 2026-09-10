@@ -1,0 +1,45 @@
+.booking-copy{grid-column:1/7}
+html,body{overflow-x:hidden}
+:root{--paper:#fff}
+.brand-logo{display:block;width:112px;height:72px;object-fit:contain;object-position:center}
+.button,.nav-cta{border-radius:3px;box-shadow:inset 0 -3px 0 rgba(80,10,10,.22);position:relative;overflow:hidden}
+.button:before,.nav-cta:before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.1);transform:translateX(-105%) skewX(-18deg);transition:transform .45s ease}
+.button:hover:before,.nav-cta:hover:before{transform:translateX(105%) skewX(-18deg)}
+.button span,.nav-cta span{position:relative;z-index:1}
+.button-dark{box-shadow:inset 0 -3px 0 rgba(0,0,0,.16)}
+.class-content>a{border-radius:50%;box-shadow:0 2px 0 rgba(23,25,26,.08)}
+.testimonial{padding:94px 10% 76px;overflow:hidden}
+.testimonial .quote-mark{display:none}
+.testimonial-heading{display:flex;align-items:center;justify-content:center;gap:13px;color:#f7c3bd;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+.testimonial-heading i{display:block;width:45px;height:1px;background:rgba(255,255,255,.45)}
+.testimonial-stage{position:relative;max-width:900px;min-height:230px;margin:0 auto}
+.testimonial-item{display:none;animation:testimonialIn .65s ease both}
+.testimonial-item.is-active{display:block}
+.testimonial-item blockquote{margin:24px auto 34px;border-left:3px solid #f7c3bd;padding-left:26px;text-align:left}
+.testimonial-item p{display:flex;align-items:center;justify-content:flex-start;gap:10px;max-width:900px;margin:0 auto;padding-left:29px;font-size:11px;text-transform:uppercase;letter-spacing:.12em}
+.testimonial-item p span{width:34px;height:34px;margin:0;border:1px solid rgba(255,255,255,.55);border-radius:50%;font-size:10px;line-height:32px}
+.testimonial-item p strong{font-weight:700}
+.testimonial-item p small{margin-left:3px;color:#f5c1b9;opacity:.9}
+.testimonial-controls{display:flex;align-items:center;justify-content:center;gap:25px;margin-top:24px}
+.testimonial-arrow{width:32px;height:32px;border:1px solid rgba(255,255,255,.55);border-radius:50%;background:transparent;color:#fff;cursor:pointer;font-size:17px;line-height:1;transition:.25s}
+.testimonial-arrow:hover{background:#fff;color:var(--red);transform:translateY(-2px)}
+.testimonial-dots{display:flex;gap:8px}
+.testimonial-dots button{width:22px;height:3px;border:0;background:rgba(255,255,255,.35);cursor:pointer;padding:0;transition:.3s}
+.testimonial-dots button.is-active{width:40px;background:#fff}
+@keyframes testimonialIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.testimonial-item{animation:none}}
+@media(max-width:800px){
+	.brand-logo{width:94px;height:60px}
+	.booking-copy{grid-column:auto}
+	.booking-inner{display:block}
+	.booking-form{grid-column:auto;width:100%;min-width:0}
+	.booking-form input,.booking-form select,.booking-form button{max-width:100%;min-width:0}
+	.testimonial{padding:68px 7vw 52px}
+	.testimonial-heading{gap:9px;font-size:8px;letter-spacing:.1em;white-space:nowrap}
+	.testimonial-heading i{width:24px}
+	.testimonial-stage{min-height:245px}
+	.testimonial-item blockquote{font-size:31px;margin:20px auto 25px;padding-left:17px}
+	.testimonial-item p{flex-wrap:wrap;justify-content:flex-start;gap:7px;padding-left:20px;letter-spacing:.08em}
+	.testimonial-item p small{width:100%;margin-left:44px}
+	.testimonial-controls{margin-top:15px;gap:18px}
+}
