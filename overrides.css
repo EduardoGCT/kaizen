@@ -59,6 +59,7 @@ html{scroll-behavior:smooth;scroll-snap-type:none}
 @media(prefers-reduced-motion:reduce){.testimonial-item{animation:none}}
 @media(max-width:800px){
 	.brand-logo{width:94px;height:60px}
+	.site-header{position:relative;top:auto}
 	.main-nav{background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 	.hero{min-height:calc(100svh - 151px)}
 	.intro,.classes,.space,.testimonial,.booking,.faq{min-height:auto}

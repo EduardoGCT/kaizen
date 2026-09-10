@@ -215,7 +215,8 @@ h1,h2,h3 {
 }
 h1 {
   font-size:clamp(75px,10vw,142px);
-  max-width:700px
+  max-width:700px;
+  line-height:.94
 }
 h1 span,h2 em {
   color:var(--red);
@@ -235,7 +236,13 @@ h2 {
   align-items:center;
   gap:27px
 }
+.hero-copy .eyebrow,
+.hero-actions .text-link {
+  line-height:1.5
+}
 .text-link,.arrow-link {
+  display:inline-flex;
+  align-items:center;
   font-size:11px;
   font-weight:700;
   text-transform:uppercase;
@@ -244,6 +251,7 @@ h2 {
 .text-link span,.arrow-link span {
   color:var(--red);
   font-size:20px;
+  line-height:1;
   margin-left:8px
 }
 .hero-proof {
@@ -619,8 +627,18 @@ h2 {
 .space-copy {
   grid-column:8/12
 }
+.space-copy .eyebrow {
+  font-size:12px;
+  letter-spacing:.12em;
+  margin-bottom:20px
+}
 .space-copy h2 {
+  font-size:clamp(48px,5vw,72px);
+  line-height:.95;
   margin-bottom:28px
+}
+.space-title-first {
+  white-space:normal
 }
 .space-copy>p:not(.eyebrow) {
   color:var(--muted);
@@ -874,7 +892,8 @@ h2 {
   }
   .site-header {
     height:74px;
-    padding:0 6vw
+    padding:0 6vw;
+    position:relative
   }
   .menu-toggle {
     display:block;
@@ -917,11 +936,26 @@ h2 {
     display:block;
     min-height:100svh
   }
+  h1,h2,h3 {
+    line-height:.95
+  }
+  h1 {
+    font-size:clamp(58px,16vw,82px);
+    line-height:1.02
+  }
   .hero-copy {
     padding:70px 0 55px
   }
   .hero-text {
     font-size:14px
+  }
+  .hero-actions {
+    align-items:flex-start;
+    flex-direction:column;
+    gap:20px
+  }
+  .hero-actions .text-link {
+    white-space:nowrap
   }
   .hero-proof {
     margin-top:44px
@@ -945,7 +979,7 @@ h2 {
     margin-bottom:48px
   }
   .intro-content h2 {
-    font-size:70px
+    font-size:54px
   }
   .stats {
     margin-top:55px
@@ -987,7 +1021,13 @@ h2 {
     margin-bottom:55px
   }
   .space-copy h2 {
-    font-size:68px
+    font-size:50px;
+    line-height:.98
+  }
+  .space-copy .eyebrow {
+    font-size:12px;
+    letter-spacing:.12em;
+    margin-bottom:20px
   }
   .testimonial {
     padding:80px 8vw
@@ -999,7 +1039,7 @@ h2 {
     padding:90px 0
   }
   .booking-copy h2 {
-    font-size:72px
+    font-size:56px
   }
   .booking-form {
     margin-top:54px
@@ -1010,7 +1050,7 @@ h2 {
     padding-bottom:100px
   }
   .faq-list h2 {
-    font-size:70px
+    font-size:55px
   }
   .footer-top {
     display:grid;
