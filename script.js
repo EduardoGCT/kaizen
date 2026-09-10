@@ -1,6 +1,14 @@
 const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.main-nav');
 
+document.querySelector('.footer-bottom a[href="#inicio"]')?.addEventListener('click', (event) => {
+  event.preventDefault();
+  document.documentElement.style.scrollBehavior = 'auto';
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  history.replaceState(null, '', '#inicio');
+});
+
 menuButton?.addEventListener('click', () => {
   const isOpen = nav.classList.toggle('is-open');
   menuButton.setAttribute('aria-expanded', String(isOpen));
