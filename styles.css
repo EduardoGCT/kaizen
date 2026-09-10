@@ -685,7 +685,7 @@ h2 {
   color:#fff;
   padding:120px 0
 }
-..booking-copy {
+.booking-copy {
   grid-column:1/7
 }
 .booking-copy h2 {
