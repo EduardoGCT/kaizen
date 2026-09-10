@@ -61,11 +61,14 @@ html{scroll-behavior:smooth;scroll-snap-type:none}
 	.brand-logo{width:94px;height:60px}
 	.main-nav{background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 	.hero{min-height:calc(100svh - 151px)}
+	.intro,.classes,.space,.testimonial,.booking,.faq{min-height:auto}
+	.hero-copy{padding:52px 0 42px}
+	.hero-art{min-height:360px}
 	.booking-copy{grid-column:auto}
 	.booking-inner{display:block}
 	.booking-form{grid-column:auto;width:100%;min-width:0}
 	.booking-form input,.booking-form select,.booking-form button{max-width:100%;min-width:0}
-	.testimonial{padding:68px 7vw 52px}
+	.testimonial{min-height:100svh;padding:68px 7vw 52px}
 	.testimonial-heading{gap:9px;font-size:8px;letter-spacing:.1em;white-space:nowrap}
 	.testimonial-heading i{width:24px}
 	.testimonial-stage{min-height:245px}
