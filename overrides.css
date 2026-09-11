@@ -2,11 +2,29 @@
 html,body{overflow-x:clip}
 html{scroll-behavior:smooth;scroll-snap-type:none}
 .hero,.intro,.classes,.space,.testimonial,.booking,.faq{scroll-snap-align:start}
+.classes{min-height:300svh;padding:0;position:relative}
+.classes-stage{position:sticky;top:0;height:100svh;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:center;padding:0 5vw;overflow:hidden;background:#e8e5df}
+.classes-stage .classes-heading{grid-column:1/6;display:block;padding:0;margin:0;align-self:center}
+.classes-stage .classes-heading .section-label{display:flex;grid-column:auto;margin:0 0 48px}
+.classes-stage .classes-heading>div:nth-child(2){grid-column:auto}
+.classes-stage .heading-note{grid-column:auto;margin:27px 0 0;max-width:230px}
+.classes-stage .class-list{grid-column:6/13;display:block;position:relative;width:100%;height:min(620px,78svh);margin:0;overflow:hidden}
+.classes-stage .class-track{display:flex;flex-direction:column;gap:24px;transform:translateY(calc(-1 * var(--class-shift,0px)));transition:transform .28s cubic-bezier(.22,1,.36,1);will-change:transform}
+.classes-stage .class-card{position:relative;inset:auto;flex:0 0 calc(100% - 96px);width:100%;min-height:0;opacity:0;transform:translateY(24px) scale(.985);pointer-events:auto;filter:saturate(.8);transition:opacity .7s ease,filter .5s ease,box-shadow .5s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+.classes-stage .class-card.is-visible{opacity:.62;transform:translateY(0) scale(.985)}
+.classes-stage .class-card.is-visible.is-scroll-active{opacity:1;filter:saturate(1);transform:translateY(0) scale(1);box-shadow:0 18px 36px rgba(23,25,26,.14)}
+.classes-stage .class-card:nth-child(2){transition-delay:.1s}
+.classes-stage .class-card:nth-child(3){transition-delay:.2s}
+.classes-stage .class-card .class-visual{overflow:hidden}
+.classes-stage .class-card .class-visual:before{content:'';position:absolute;z-index:2;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.18) 48%,transparent 61%);transform:translateX(-130%);transition:transform .9s cubic-bezier(.22,1,.36,1);pointer-events:none}
+.classes-stage .class-card.is-scroll-active .class-visual:before{transform:translateX(130%)}
+.classes-stage .class-card .reveal,.classes-stage .class-card.reveal{transition:opacity .5s ease,filter .5s ease,box-shadow .5s ease,transform .5s cubic-bezier(.22,1,.36,1)}
 .site-header{position:sticky;top:0;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom-color:rgba(217,213,206,.82)}
 .hero{min-height:calc(100svh - 182px)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;scroll-snap-type:none}}
 :root{--paper:#fff}
 :root{--text-label:13px;--text-support:15px}
+.material-symbols-outlined{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:1.1em;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased;font-variation-settings:'FILL' 0,'wght' 500,'GRAD' 0,'opsz' 20;vertical-align:-.16em}
 .announcement{font-size:var(--text-label)}
 .main-nav{font-size:13px}
 .nav-cta,.button{font-size:var(--text-label)}
@@ -30,8 +48,13 @@ html{scroll-behavior:smooth;scroll-snap-type:none}
 .button:before,.nav-cta:before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.1);transform:translateX(-105%) skewX(-18deg);transition:transform .45s ease}
 .button:hover:before,.nav-cta:hover:before{transform:translateX(105%) skewX(-18deg)}
 .button span,.nav-cta span{position:relative;z-index:1}
+.button .material-symbols-outlined,.nav-cta .material-symbols-outlined{font-size:18px;margin-left:10px;vertical-align:-4px}
+.text-link .material-symbols-outlined,.arrow-link .material-symbols-outlined{font-size:19px;margin-left:8px;vertical-align:-4px}
 .button-dark{box-shadow:inset 0 -3px 0 rgba(0,0,0,.16)}
 .class-content>a{border-radius:50%;box-shadow:0 2px 0 rgba(23,25,26,.08)}
+.class-content>a .material-symbols-outlined{font-size:19px;vertical-align:-4px}
+.location>span.material-symbols-outlined{font-size:24px;vertical-align:middle}
+.booking-note .material-symbols-outlined{font-size:17px;vertical-align:-4px;margin-right:7px}
 .testimonial{padding:94px 10% 76px;overflow:hidden}
 .testimonial .quote-mark{display:none}
 .testimonial-heading{display:flex;align-items:center;justify-content:center;gap:13px;color:#f7c3bd;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.9}
@@ -77,6 +100,20 @@ html{scroll-behavior:smooth;scroll-snap-type:none}
 @keyframes testimonialIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.testimonial-item{animation:none}}
 @media(max-width:800px){
+	.classes{min-height:0;padding:85px 0}
+	.classes-stage{position:static;height:auto;display:block;padding:0;overflow:visible;background:transparent}
+	.classes-stage .classes-heading{display:block;margin:0 6vw 35px}
+	.classes-stage .classes-heading .section-label{margin-bottom:46px}
+	.classes-stage .heading-note{margin-top:25px}
+	.classes-stage .class-list{display:block;height:auto;width:auto;margin:0;padding:0 calc((100% - (88vw - 12px)) / 2) 12px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+	.classes-stage .class-list::-webkit-scrollbar{display:none}
+	.classes-stage .class-track{display:flex;flex-direction:row;gap:14px;width:max-content;transform:none}
+	.classes-stage .class-card{position:relative;inset:auto;display:block;flex:0 0 calc(88vw - 12px);width:calc(88vw - 12px);opacity:0;filter:saturate(.8);transform:translateY(24px) scale(.985);pointer-events:auto;margin:0;scroll-snap-align:center}
+	.classes-stage .class-card.is-visible{opacity:.62;transform:translateY(0) scale(.985)}
+	.classes-stage .class-card.is-visible.is-scroll-active{opacity:1;filter:saturate(1);transform:translateY(0) scale(1);box-shadow:0 16px 30px rgba(23,25,26,.13)}
+	.classes-stage .class-card:nth-child(2){transition-delay:.1s}
+	.classes-stage .class-card:nth-child(3){transition-delay:.2s}
+	.classes-stage .class-card .class-visual:before{display:none}
 	.announcement{font-size:12px}
 	.hero-text{font-size:16px}
 	.heading-note{font-size:15px}

@@ -30,7 +30,56 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 
-document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+document.querySelectorAll('.reveal:not(.class-card)').forEach((element) => observer.observe(element));
+
+const classesSection = document.querySelector('.classes');
+const classCards = [...document.querySelectorAll('.classes-stage .class-card')];
+const classTrack = document.querySelector('.classes-stage .class-track');
+let classesScrollFrame;
+
+const classesObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    classesSection.classList.add('is-entered');
+    requestClassesStageUpdate();
+    classesObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.22 });
+
+if (classesSection) classesObserver.observe(classesSection);
+
+const updateClassesStage = () => {
+  classesScrollFrame = undefined;
+  if (!classesSection || !classCards.length || !classTrack) return;
+  const classList = document.querySelector('.classes-stage .class-list');
+  const listRect = classList.getBoundingClientRect();
+  classCards.forEach((card) => {
+    const cardRect = card.getBoundingClientRect();
+    const isVisible = cardRect.right > listRect.left && cardRect.left < listRect.right && cardRect.bottom > listRect.top && cardRect.top < listRect.bottom;
+    if (isVisible && classesSection.classList.contains('is-entered')) card.classList.add('is-visible');
+  });
+  if (window.matchMedia('(max-width: 800px)').matches) {
+    const cardStep = classCards[0].getBoundingClientRect().width + 14;
+    const activeIndex = Math.min(classCards.length - 1, Math.max(0, Math.round(classList.scrollLeft / cardStep)));
+    classCards.forEach((card, index) => card.classList.toggle('is-scroll-active', index === activeIndex));
+    classTrack?.style.removeProperty('--class-shift');
+    return;
+  }
+  const sectionProgress = Math.max(0, Math.min(1, -classesSection.getBoundingClientRect().top / (classesSection.offsetHeight - window.innerHeight)));
+  const cardStep = classCards[0].getBoundingClientRect().height + 24;
+  classTrack.style.setProperty('--class-shift', `${sectionProgress * (classCards.length - 1) * cardStep}px`);
+  const activeIndex = Math.min(classCards.length - 1, Math.floor(sectionProgress * classCards.length));
+  classCards.forEach((card, index) => card.classList.toggle('is-scroll-active', index === activeIndex));
+};
+
+const requestClassesStageUpdate = () => {
+  if (classesScrollFrame === undefined) classesScrollFrame = window.requestAnimationFrame(updateClassesStage);
+};
+
+window.addEventListener('scroll', requestClassesStageUpdate, { passive: true });
+window.addEventListener('resize', requestClassesStageUpdate);
+document.querySelector('.classes-stage .class-list')?.addEventListener('scroll', requestClassesStageUpdate, { passive: true });
+requestClassesStageUpdate();
 
 const countObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
