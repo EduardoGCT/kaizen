@@ -142,6 +142,8 @@ html{scroll-behavior:smooth;scroll-snap-type:none}
 	.intro,.classes,.space,.testimonial,.booking,.faq{min-height:auto}
 	.hero-copy{padding:52px 0 42px}
 	.hero-art{min-height:360px}
+	.vertical-word{left:16px;top:12%;font-size:9px;line-height:1.2;letter-spacing:.18em;white-space:nowrap}
+	.vertical-word span{display:inline-block;margin:14px 0}
 	.booking-copy{grid-column:auto}
 	.booking-inner{display:block}
 	.booking-form{grid-column:auto;width:100%;min-width:0}
