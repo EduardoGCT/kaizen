@@ -41,6 +41,7 @@ const classesObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
     classesSection.classList.add('is-entered');
+    classCards.forEach((card) => card.classList.add('is-visible'));
     requestClassesStageUpdate();
     classesObserver.unobserve(entry.target);
   });
