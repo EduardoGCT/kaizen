@@ -199,7 +199,7 @@ if (testimonial) {
     } catch {
       saved = [];
     }
-    if (saved.length >= 3) {
+    if (saved.length >= 10) {
       status.textContent = 'O limite de 3 comentários por navegador já foi atingido.';
       return;
     }
